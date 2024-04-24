@@ -17,6 +17,7 @@ class FTPManager:
 
     def upload_file(self, file_to_upload, target_directory, target_filename):
         try:
+            print("Začínám stahovat")
             ftp = ftplib.FTP(self.ftp_host)
             ftp.login(self.ftp_username, self.ftp_password)
             ftp.cwd(target_directory)
@@ -29,6 +30,7 @@ class FTPManager:
 
     def download_file_from_url(self, url, local_path):
         try:
+            print("Začínám nahrávat")
             response = requests.get(url)
             response.raise_for_status()
             with open(local_path, 'wb') as file:
